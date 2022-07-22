@@ -1,0 +1,12 @@
+[Unit]
+Description=Connect to IITM LDAP Ethernet on Startup.
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash /home/path/to/bash/script/connect_iitm.sh
+Restart=always
+Environment="PYTHONPATH=$PYTHONPATH:/home/my_user/.local/lib/python3.8/site-packages"
+StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
